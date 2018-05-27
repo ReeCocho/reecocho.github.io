@@ -1,5 +1,5 @@
 ---
-layout : post
+layout : default
 title : "Snek"
 date : 2018-5-27 17:16:00
 categories : "Game Development"

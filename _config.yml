@@ -1,6 +1,8 @@
 # Site settings
 locale : "en-US"
 title : "ReeCocho"
+email : "ReeCocho@gmail.com"
+description : "My personal portfolio website."
 baseurl : ""
 
 # Jekyll theme

@@ -7,4 +7,4 @@ baseurl : ""
 url: "http://reecocho.github.io"
 
 # Jekyll theme
-theme : jekyll-theme-slate
+theme : jekyll-theme-next

@@ -1,9 +1,19 @@
 ---
 layout : post
 title : "Snek"
-date : "2018-5-27 5:16 PM"
+date : 2018-5-27 17:16:00
 categories : "Game Development"
 ---
-I'm sure you're familiar with the game snake. That's what this is. While working on an earlier version of the GUST game engine, I decided to take what I had already written and turn it into something playable. I settled on the game Snake, and within two days I had it finished. It's written in C++ with OpenGL as the main rendering API. You'll notice that the code is WAY to complex for a game as simple as snake (Multithreading, ECS, etc.). This is a by product of the fact it's using a derivative of the GUST game engine. You can build using CMake with the only dependencies being SDL 2.0.6 (Window management and input), GLM (Mathematics), and OpenGL. The rest is included in the repository.
+
+{{ page.title }}
+================
+
+I'm sure you're familiar with the game snake. That's what this is. While working on an earlier version of the GUST game engine, 
+I decided to take what I had already written and turn it into something playable. I settled on the game Snake, and within two 
+days I had it finished. It's written in C++ with OpenGL as the main rendering API. You'll notice that the code is WAY to complex 
+for a game as simple as snake (Multithreading, ECS, etc.). This is a by product of the fact it's using a derivative of the GUST 
+game engine. You can build using CMake with the only dependencies being SDL 2.0.6 (Window management and input), GLM (Mathematics), 
+and OpenGL. The rest is included in the repository.
+
 ![Snek]({{ "/assets/snek.png" | absolute_url}})
 [GitHub Page](https://github.com/ReeCocho/Snek/)

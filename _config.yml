@@ -4,6 +4,7 @@ title : "ReeCocho"
 email : "ReeCocho@gmail.com"
 description : "My personal portfolio website."
 baseurl : ""
+url: "http://reecocho.github.io"
 
 # Jekyll theme
 theme : jekyll-theme-slate

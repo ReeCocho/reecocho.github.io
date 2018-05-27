@@ -1,0 +1,18 @@
+---
+layout : default
+---
+
+<div class="home">
+	<h1 class="page-heading">Welcome to my portfolio</h1>
+	<p>This website is where I keep all the information about my projects, my learning, and anything else I find interesting.</p>
+	<ul class="post-list">
+	{% for post in site.posts %}
+		<li>
+			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+			<h2>
+				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+			</h2>
+		</li>
+	{% endfor %}
+	</ul>
+</div>

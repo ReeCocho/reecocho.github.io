@@ -12,5 +12,5 @@ for a game as simple as snake (Multithreading, ECS, etc.). This is a by product 
 game engine. You can build using CMake with the only dependencies being SDL 2.0.6 (Window management and input), GLM (Mathematics), 
 and OpenGL. The rest is included in the repository.
 
-![Snek]({{ "/assets/snek.png" | absolute_url}})
+![Snek]({{ "/assets/images/snek.png" | absolute_url}})
 [GitHub Page](https://github.com/ReeCocho/Snek/)

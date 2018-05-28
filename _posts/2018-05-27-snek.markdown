@@ -1,10 +1,9 @@
 ---
+layout : post
 title : "Snek"
 date : 2018-5-27 17:16:00
+categories : "Game Development"
 ---
-
-{{ page.title }}
-================
 
 I'm sure you're familiar with the game snake. That's what this is. While working on an earlier version of the GUST game engine, 
 I decided to take what I had already written and turn it into something playable. I settled on the game Snake, and within two 

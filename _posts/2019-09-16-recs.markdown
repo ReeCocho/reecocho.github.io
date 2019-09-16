@@ -1,0 +1,20 @@
+---
+layout : post
+title : "RECS"
+date : 2019-9-16 14:05:00
+categories : "Programming"
+---
+
+RECS (ReeCocho's Entity-Component-System) is an entity-component-system, or ECS, based off of Unity's ECS. It's goal is to allow for simulating worlds in situations where performance is critical. My goal in this article isn't to describe [what an ECS is](https://en.wikipedia.org/wiki/Entity_component_system), but rather describe how I implemented mine.
+
+My ECS is based around the idea of a world. Worlds are the places where entities exist, and are implemented using the `IWorld` interface. The only method that must be defined is `update`. The `update` method's goal is to run the `on_update` callback on every system in the world. This can be done linearly through `get_systems` or in parallel through `get_dependency_graph`. The dependency graph organizes the systems in such a fashion that they can be used in parallel.
+
+The dependency graph is generated based on which components the systems only read from and which components the system reads from and writes to. These relationships are defined in the constructor of the system. It is not enforced, but each system should only operate on the components it describes during construction.
+
+The primary takeaway I had while research Unity's ECS was how they organized components in memory. Each entity is described by an archetype, which is a collection of components. An object called a `ComponentBucket` is created for each archetype used, and lines up every entity matching that archetype contiguously in memory. Adding or removing a component from an entity causes that entity to be moved in memory. For that reason, pointers to components should be considered volatile. A safer way to reference other components or entities is via an `Entity` object, which just contains an ID and a version number.
+
+I didn't want to use RTTI for performance reasons, which made managing component types difficult. To work around this, I enforce that each component must define an `id` member as a `static const char*` which will be used to uniquely identify that type of component.
+
+Some improvements I'd like to make would be to optimize the iterator. Performing a performance profile of the example clearly shows that a lot of time is being spent there. Something else I'd like to do is find a better solution for component type identification other than requiring a member be defined. Doing that feels kind of hacky to me.
+
+[GitHub Link](https://github.com/ReeCocho/RECS)

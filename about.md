@@ -4,8 +4,6 @@ title: "About Me"
 permalink: /about/
 ---
 
-![Picture 1](/assets/fullsize.png)
+Hey! I'm a student at the University of Central Florida studying computer science. Although I have experience working on many aspects of game development, my focus and passion is graphics programming and engine programming. My hobby project, [the Ard Engine](https://github.com/ReeCocho/ard-engine) is a good demonstration of those skills.
 
-Hello! I'm Game Developer, an award-winning game developer who can both program and design games. As you can see from my impressive portfolio, I've worked on lots of different games!
-
-If you're interested in what I can offer your company, please contact me!
+I'm current open to hire, so if you're interested in what I can offer your company, please contact me!

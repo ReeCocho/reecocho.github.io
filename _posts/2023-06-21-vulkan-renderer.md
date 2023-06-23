@@ -11,20 +11,20 @@ youtubeId: iEUc-SF0Lcw
 
 ## Overview
 
-The renderer of my engine is designed with bindless rendering techniques and GPU driven rendering. Some of the features I implemented include:
+The renderer of [my engine](https://github.com/ReeCocho/ard-engine) is designed with bindless rendering techniques and GPU driven rendering. Some of the features I implemented include:
 
-* Unified vertex memory using a custom allocator for mesh data.
-* GPU driven rendering using compute shaders to generate draw calls and perform frustum and hierarchical Z-Buffer occlusion culling.
-* Bindless textures and materials using texture arrays and SSBOs.
-* Mesh and mipmap texture streaming.
-* PBR rendering with image based lighting, clustered shading, and cascaded shadow maps.
-* Image effects like screen space ambient occlusion, FXAA, and adaptive luminance.
+* **Unified vertex memory** using a custom allocator for mesh data.
+* **GPU driven rendering** using compute shaders to generate draw calls and perform frustum and **hierarchical Z-Buffer occlusion culling**.
+* **Bindless textures and materials** using texture arrays and SSBOs.
+* Mesh and mipmap **texture streaming**.
+* **PBR rendering** with **image based lighting**, **clustered shading**, and **cascaded shadow maps**.
+* Image effects like **SSAO**, **FXAA**, and **adaptive luminance**.
+
+You can find [a playable demo here](https://drive.google.com/file/d/1A1e2JNk10fu3KEoe7OPyRiK1NRtZHqud/view?usp=sharing) which contains the Bistro scene.
 
 Below is a video demonstrating the renderer using the Amazon Lumberyard Bistro scene with all rendering features enabled.
 
 {% include youtubePlayer.html id=page.youtubeId %}
-
-You can find a link to [a playable demo here](https://drive.google.com/file/d/1A1e2JNk10fu3KEoe7OPyRiK1NRtZHqud/view?usp=sharing) which contains the Bistro scene.
 
 ## Design Goals
 
@@ -58,9 +58,11 @@ uniform_buffer
         offset: [timer.cos() * 0.1, timer.sin() * 0.1],
     }]));
 
-// Render passes are self contained, meaning you can't do things like perform draw calls outside of a render pass, making the API harder to misuse.
+// Render passes are self contained, meaning you can't do things like perform draw calls outside of a render pass, 
+// making the API harder to misuse.
 command_buffer.render_pass(
-    // Render passes in PAL are not objects which is unlike Vulkan. Instead, you define render passes at the location they are used. Internally, VkRenderPass objects are cached.
+    // Render passes in PAL are not objects which is unlike Vulkan. Instead, you define render passes at the location 
+    // they are used. Internally, VkRenderPass objects are cached.
     RenderPassDescriptor {
         // Image layout transitions are handled automatically. No pipeline barrier neccessary!
         color_attachments: vec![ColorAttachment {
@@ -76,7 +78,8 @@ command_buffer.render_pass(
 
         pass.bind_sets(0, vec![&set]);
 
-        // These buffers were written to on a transfer queue. Appropriate semaphores are used for synchronization on submit.
+        // These buffers were written to on a transfer queue. Appropriate semaphores are used for synchronization 
+        // on submit.
         pass.bind_vertex_buffers(
             0,
             vec![VertexBind {

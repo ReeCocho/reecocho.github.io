@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ard Renderer"
-summary: "A high performance realtime Vulkan renderer built with modern techniques. Written in Rust."
+summary: "A high performance real time Vulkan renderer built with modern techniques. Written in Rust."
 date:   2022-10-09 15:39:40
 preview: /assets/renderer_thumbnail.png
 youtubeId: iEUc-SF0Lcw
@@ -28,9 +28,13 @@ Below is a video demonstrating the renderer using the Amazon Lumberyard Bistro s
 
 ## Design Goals
 
+![Over 8K point lights](/assets/renderer_header3.png)
+
 I knew from the start I wanted to implement modern rendering techniques like GPU driven and bindless rendering techniques. These techniques improve performance by decreasing the amount of communication that needs to occur between the CPU and GPU. I was inspired by two articles: one by [Adrian Courrèges](https://www.adriancourreges.com/blog/2016/09/09/doom-2016-graphics-study/) and another by [Simon Coenen](https://simoncoenen.com/blog/programming/graphics/DoomEternalStudy.html). They are both excellent analyses of the rendering techniques used by Id Software's DOOM (2016) and DOOM Eternal respectively.
 
 ## Implementation
+
+![Picture 3](/assets/renderer_header2.png)
 
 My initial implementation of the renderer was written purely in Vulkan, but turned out to be extremely hard to maintain. There were a few pain points with Vulkan that led me to consider a redesign. In order of importance:
 
@@ -64,7 +68,7 @@ command_buffer.render_pass(
     // Render passes in PAL are not objects which is unlike Vulkan. Instead, you define render passes at the location 
     // they are used. Internally, VkRenderPass objects are cached.
     RenderPassDescriptor {
-        // Image layout transitions are handled automatically. No pipeline barrier neccessary!
+        // Image layout transitions are handled automatically. No pipeline barrier necessary!
         color_attachments: vec![ColorAttachment {
             source: ColorAttachmentSource::SurfaceImage(&surface_image),
             load_op: LoadOp::Clear(ClearColor::RgbaF32(0.0, 0.0, 0.0, 0.0)),
@@ -99,7 +103,7 @@ context.main().submit(Some("main_pass"), command_buffer);
 
 ...
 
-// At the end of execution, all resources are cleaned up using RAII
+// At the end of execution, all resources are cleaned up using RAII.
 ```
 
 ## Room For Improvement

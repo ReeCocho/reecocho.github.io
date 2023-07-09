@@ -4,7 +4,7 @@ title: "About Me"
 permalink: /about/
 ---
 
-![Picture 1](/assets/headshot.jpg)
+<img src="/assets/headshot.jpg" alt="Picture 1" width="30%">
 
 Hey! I'm a student at the University of Central Florida studying computer science. I've been a programmer since I was 10, and have been interested in game development for just as long. Although I have experience working on many aspects of game development, my focus and passion is graphics programming and engine programming. I'm constantly looking for new challenges and new opportunities to learn. My hobby project, [the Ard Engine](https://github.com/ReeCocho/ard-engine), is an excellent demonstration of that tenacity.
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Article: GPU Driven Rendering"
 summary: "An overview of how GPU driven rendering works in my renderer."
-date:   2022-10-06 15:39:40
+date:   2024-01-30 15:39:40
 preview: /assets/renderer_thumbnail.png
 ---
 

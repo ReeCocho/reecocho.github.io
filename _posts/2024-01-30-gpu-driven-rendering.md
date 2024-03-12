@@ -639,4 +639,4 @@ As I stated at the beginning of this article, there are some details I left out 
 
 There are still some things I plan on doing to make this system even better. Something I mentioned a couple paragraphs ago is a LOD system. That will probably involve having each object be associated with a set of groups (the different LOD levels) and selecting which group to insert itself within based on screen size or distance from the camera. You might even be able to ditch the culling shaders all together if you used mesh shaders which can do culling themselves. However, mesh shader coverage isn't exactly where I'd like it to be right now, so I may have separate code paths for the traditional pipeline and mesh shaders.
 
-Thanks for reading! If there are any mistakes you spotted, please feel free to email me and I'll make corrections.
+Thanks for reading! If there are any mistakes you spotted, or you have any questions, please feel free to email me.

@@ -101,7 +101,7 @@ If you were paying attention and also put some things together that I mentioned 
 *Here is a before image with a flat ambient term.*
 
 ![Scene with diffuse irradiance.](/assets/ibl/irradiance_no_spec.PNG)
-*Here is the after image with. Notice how everything is slightly blue, since it's reflecting the sky box. Also notice how everything seems to have more depth.*
+*Here is the after image with diffuse irradiance. Notice how everything is slightly blue, since it's reflecting the sky box. Also notice how everything seems to have more depth.*
 
 ### Prefiltered Environment Maps
 
@@ -142,7 +142,7 @@ The naive implementation for specular IBL still requires thousands of samples pe
 
 The first thing to do is realize that the first mip level is actually the same thing as the cube map texture you're sampling, so you don't even need to take any samples. You can just copy the image directly. Pretty easy!
 
-The second optimization is called "filtered importance sampling." Importance sampling is simply the idea that our BRDF has certain directions that are more important than others (specifically, those aligned with the surface normal). Therefore, we can get away with taking fewer samples by sampling closer to the directions that are "important." The "filtered" part is about sampling mip map levels instead of the source cube map directly. This allows us to get down to 32 samples per texel, which is pretty amazing!
+The second optimization is called "filtered importance sampling." Importance sampling is related to the integration technique used to create the cube maps ([Monte Carlo integration](https://en.wikipedia.org/wiki/Monte_Carlo_integration)). The idea is that our BRDF has certain directions that are more important than others (specifically, those aligned with the surface normal). Therefore, when taking random samples, we can get away with taking fewer samples by sampling more often in the directions that are "important." The "filtered" part is about sampling mip map levels instead of the source cube map directly. This allows us to get down to 32 samples per texel, which is pretty amazing!
 
 The last optimization is to precompute the sample directions, weights, and mip levels and look them up while we're sampling. We can do this by doing the math in a space local to the sample instead of doing everything in world space. All together, the optimizations get us down to a tenth of a millisecond, which is perfect!
 

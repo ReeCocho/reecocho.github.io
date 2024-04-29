@@ -4,7 +4,7 @@ title:  "Ard Renderer"
 summary: "A high performance real time Vulkan renderer built with modern techniques. Written in Rust."
 date:   2022-10-09 15:39:40
 preview: /assets/renderer_thumbnail.png
-youtubeId: iEUc-SF0Lcw
+youtubeId: xfcaN6j2Kf8
 ---
 
 ![Picture 1](/assets/renderer_header.png)
@@ -14,13 +14,14 @@ youtubeId: iEUc-SF0Lcw
 The renderer of [my engine](https://github.com/ReeCocho/ard-engine) is designed with bindless rendering techniques and GPU driven rendering. Some of the features I implemented include:
 
 * **Unified vertex memory** using a custom allocator for mesh data.
-* **GPU driven rendering** using compute shaders to generate draw calls and perform frustum and **hierarchical Z-Buffer occlusion culling**.
+* **GPU driven rendering** using mesh shaders for frustum and **hierarchical Z-Buffer occlusion culling**.
 * **Bindless textures and materials** using texture arrays and SSBOs.
 * Mesh and mipmap **texture streaming**.
-* **PBR rendering** with **image based lighting**, **clustered shading**, and **cascaded shadow maps**.
-* Image effects like **SSAO**, **FXAA**, and **adaptive luminance**.
+* **PBR rendering** with **realtime image based lighting**, **clustered shading**, and **cascaded shadow maps**.
+* Image effects like **ambient occlusion**, **eye adaptation**, **physically based bloom**, **volumetric sun shafts**, and **adaptive luminance**.
+* A hardware accelerated **path tracing** reference renderer.
 
-You can find [a playable demo here](https://drive.google.com/file/d/1A1e2JNk10fu3KEoe7OPyRiK1NRtZHqud/view?usp=sharing) which contains the Bistro scene.
+You can find [a playable demo here](https://drive.google.com/file/d/1A1e2JNk10fu3KEoe7OPyRiK1NRtZHqud/view?usp=sharing) which contains the Bistro scene. Note that your device will need to support Vulkan 1.3, mesh shaders, and ray tracing. Also, be aware that the demo might not be the most up to date version of the engine.
 
 Below is a video demonstrating the renderer using the Amazon Lumberyard Bistro scene with all rendering features enabled.
 
@@ -111,6 +112,6 @@ context.main().submit(Some("main_pass"), command_buffer);
 There are certainly things I look forward to implementing in the future to improve the quality of this piece of my engine.
 
 * PAL is still in a "pre-release" state and is missing features like support for multithreaded command recording.
-* Static geometry frustum culling could be accelerated using something like a BVH.
-* The renderer is missing certain features such as transparent objects, point and spot light shadows, and certain image effects like bloom.
-* I'm very interested in using the Vulkan ray tracing API to do realtime global illumination.
+* Static geometry culling could be accelerated using something like a BVH.
+* The renderer is missing certain features such as point and spot light shadows, mesh level of detail, and particles.
+* I'm very interested in using the ray tracing API to do realtime global illumination and realtime reflections.

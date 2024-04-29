@@ -4,7 +4,7 @@ title:  "Article: Realtime Image Based Lighting"
 summary: "How I generate irradiance and prefiltered environment maps in real time."
 date:   2024-03-12 15:39:40
 preview: /assets/realtime_ibl_thumbnail.PNG
-youtubeId: pTOBWhgRn38
+youtubeId: Iidi5yBr5J8
 ---
 
 ## Overview

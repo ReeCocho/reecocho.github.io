@@ -33,9 +33,9 @@ Now, the mesh shading pipeline replaces all of this with a new, fully programmab
 
 ![Mesh shading geometry pipeline.](/assets/ms/ms_pipeline.png)
 
-First, you have a task shader. It's technically optional, but if you don't need to use it, odds are you don't need to use the mesh shading pipeline to begin with. The task shader is invoked like a compute shader, and each work group dispatches a number of mesh shader invocations. This idea of a shader dispatching other shaders is called "amplification" and is why you sometimes hear people call the task shader an "amplification shader." The invoked mesh shaders take a payload from the task shader thread that invoked them, and produce some output primitives (indices and vertices).
+First, you have a task shader. It's technically optional, but if you don't need to use it, odds are you don't need to use the mesh shading pipeline to begin with. The task shader is invoked like a compute shader, and each work group dispatches a number of mesh shader invocations. This idea of a shader dispatching other shaders is called "amplification" and is why you sometimes hear people call the task shader an "amplification shader." The invoked mesh shaders take a payload from the task shader that invoked them, and produce some output primitives (indices and vertices).
 
-You may or may not find this new pipeline less complicated, but it's undeniably more powerful. Specifically, the task shader allows us to do GPU culling as described in the "GPU Driven Rendering," but:
+You may or may not find this new pipeline less complicated, but it's undeniably more powerful. Specifically, the task shader allows us to do GPU culling as described in my "GPU Driven Rendering" article, but:
 
 1. Without allocating buffers to hold output draw calls.
 2. With support for culling sub-regions of the mesh.
@@ -102,7 +102,7 @@ Mesh shader! My mesh shader is actually pretty boring, so I won't write the pseu
 
 ## Conclusion
 
-And that's it! After implementing this in my engine, I saw about a 10% performance improvement which was honestly way more than I was expecting. The real upside to this, believe it or not, has actually been the significant *reduction in complexity* of my code. I was able to get rid of two whole compute shaders and replace them with a single task shader. Not only that, but I got back a small chunk of memory, since I no longer need input or output draw call buffers.
+And that's it! After implementing this in my engine, I saw about a 10% performance improvement which was honestly way more than I was expecting. The real upside to this, believe it or not, has actually been the significant *reduction in complexity* of my code. I was able to get rid of two whole compute shaders and replace them with a single task shader. Not to mention I don't have to deal with storing and updating draw call buffers anymore.
 
 There are some problems still that I'd like to fix:
 

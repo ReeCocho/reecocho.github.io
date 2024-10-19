@@ -10,4 +10,4 @@ Hey! I'm a graduate of the University of Central Florida with a B.S. in computer
 
 Outside of programming, I'm into music, guitar, writing, tabletop games, and fantasy novels (ask me about the First Law).
 
-I'm currently open to hire, so if you're interested in what I can offer your company, please contact me!
+I'm not actively looking for a new position right now, but feel free to contact me if you have an opportunity you think I'd be interested in!
